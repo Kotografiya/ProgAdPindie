@@ -1,7 +1,7 @@
 const usersRouter = require("express").Router();
 
-usersRouter.get('/users', () => {});
+const sendAllUsers = require('../controllers/users');
 
-module.exports = {
-usersRouter,
-};
+usersRouter.get('/users', sendAllUsers);
+
+module.exports = usersRouter
