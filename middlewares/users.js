@@ -17,7 +17,20 @@ const createUser = async (req, res, next) => {
   }
 }; 
 
+const findUserById = async (req, res, next) => {
+  console.log("GET /users/:id");
+  try {
+    req.user = await users.findById(req.params.id).populate("-password");
+    next();
+  } catch (error) {
+    res.setHeader("Content-Type", "application/json");
+        res.status(404).send(JSON.stringify({ message: "Пользователь не найден" }));
+  }
+}; 
+
+
 module.exports = {
   findAllUsers,
   createUser,
+  findUserById,
 }; 
