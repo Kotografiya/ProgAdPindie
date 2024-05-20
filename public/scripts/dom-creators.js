@@ -95,10 +95,12 @@ const renderCategoriesList = categoriesArray => {
 };
 
 const createGameCategoriesForm = (gameId, categoriesState, currentState) => {
+  // Создаём форму для редактирования категорий
   const form = document.createElement("form");
   form.className = "game-categories-form";
   document.querySelector(`#game-${gameId} .category`).after(form);
   appendCategoryEditModeForm(categoriesState, form);
+  //расставляем checked
   let targetCategories = categoriesState.filter(item =>
     currentState.categories.includes(item._id)
   );

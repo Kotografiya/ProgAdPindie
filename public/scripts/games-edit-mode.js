@@ -20,6 +20,7 @@ export const currentState = {
 export let gamesEditModeOn = false;
 
 export const useGameState = () => {
+  // мутации стейта
   function setCurrentState(key, value) {
     currentState[key] = value;
   }
@@ -127,6 +128,7 @@ const useEditableElementsState = gameId => {
 export const fillStoreWithPageData = gameId => {
   const { setCurrentState } = useGameState();
   let { targetElementsState } = useEditableElementsState(gameId);
+  // наполнить стор из аттрибутов элементов
   const allCategories = [
     ...document.querySelectorAll(`#game-${gameId} .categories li`)
   ];
@@ -141,6 +143,7 @@ export const fillStoreWithPageData = gameId => {
       setCurrentState(item.name, item.element.src || item.element.href);
     }
 
+    // показывает новые элементы
     if (item.canSetVisibility) {
       item.element.forEach(element => {
         element.removeAttribute("style");
@@ -153,6 +156,7 @@ export const fillStoreWithPageData = gameId => {
 export const fillStoreWithEditableElements = gameId => {
   const { setCurrentState } = useGameState();
   let { targetElementsState } = useEditableElementsState(gameId);
+  // наполнить стор из аттрибутов элементов
   targetElementsState.forEach(item => {
     if (item.canEditText) {
       setCurrentState(item.name, item.element.textContent);
@@ -177,6 +181,7 @@ export const fillStoreWithEditableElements = gameId => {
 const setButtonStyle = (gameId, state) => {
   const button = document.querySelector(`#game-${gameId} .edit-game-button`);
   if (state) {
+    // Устанавливает кнопку
     button.style.backgroundColor = "lightgreen";
     button.textContent = "Сохранить";
   } else {
