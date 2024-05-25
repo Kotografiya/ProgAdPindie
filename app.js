@@ -8,7 +8,7 @@ const pagesRouter = require('./routes/pages');
 
 
 const connectToDatabase = require('./database/connect');
-// const cors = require('./middlewares/cors');
+const cors = require('./middlewares/cors');
 
 const app = express();
 const PORT = 3001;
@@ -16,7 +16,7 @@ const PORT = 3001;
 connectToDatabase();
 
 app.use(
-  // cors, 
+  cors, 
   cookieParser(),
   bodyParser.json(),
   pagesRouter,
