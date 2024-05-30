@@ -2,3 +2,5 @@
 
 Ссылка на домен фронтенда: https://kotografia-back.nomoredomainswork.ru
 IP-адрес: <158.160.172.81>
+
+<!-- у меня не вышло -->
