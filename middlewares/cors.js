@@ -1,7 +1,7 @@
 const allowedCors = [
     "http://localhost:3000" ,
      "http://localhost:3001" ,
-     "kotografia-back.nomoredomainswork.ru",
+     "https://kotografia-back.nomoredomainswork.ru",
 
 ]
 
